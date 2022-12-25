@@ -1,5 +1,12 @@
-import 'package:torico_advent_calendart_2022_2/torico_advent_calendart_2022_2.dart' as torico_advent_calendart_2022_2;
+import 'package:args/args.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${torico_advent_calendart_2022_2.calculate()}!');
+  final parser = ArgParser();
+  parser.addFlag('help', abbr: 'h', help: 'Show usage information');
+  parser.addFlag('version', abbr: 'v', help: 'Show version number');
+  parser.addOption('target', abbr: 't');
+  final result = parser.parse(arguments);
+  print('help: ${result['help']}');
+  print('version: ${result['version']}');
+  print('target: ${result['target']}');
 }
